@@ -73,6 +73,8 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     public ApiResponse<AttendanceResponseDto> markAttendance(AttendanceRequestDto attendanceRequest) {
+        attendanceRequest.validate();
+
         Employee employee = employeeRepository.findById(attendanceRequest.getEmployeeId())
                 .orElseThrow(() -> new RuntimeException("Employee not found"));
 

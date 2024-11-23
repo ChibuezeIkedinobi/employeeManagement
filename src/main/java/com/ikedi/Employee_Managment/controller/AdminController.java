@@ -36,7 +36,7 @@ public class AdminController {
 
     @GetMapping("/attendance")
     public ResponseEntity<ApiResponse<List<AttendanceResponseDto>>> getAllAttendance() {
-        return ResponseEntity.ok(adminService.getAllAttendance());  // kxWxlp*y_6ZZ
+        return ResponseEntity.ok(adminService.getAllAttendance());
     }
 
     @DeleteMapping("/employees/{employeeId}")

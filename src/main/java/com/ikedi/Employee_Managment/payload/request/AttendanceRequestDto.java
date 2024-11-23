@@ -9,7 +9,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 @Data
@@ -28,6 +27,10 @@ public class AttendanceRequestDto {
     public void validate() {
         if (absent == Absent.NO && (clockIn == null || clockOut == null)) {
             throw new ValidationException("ClockIn and ClockOut must be provided if the employee is present");
+        }
+
+        if (absent == Absent.YES && present == Present.YES) {
+            throw new ValidationException("You cannot be Present and Absent at the same time");
         }
     }
 }
