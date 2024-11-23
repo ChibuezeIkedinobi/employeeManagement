@@ -17,4 +17,6 @@ public interface AdminService {
     ApiResponse <AttendanceResponseDto> markAttendance(AttendanceRequestDto attendance);
 
     ApiResponse <List<AttendanceResponseDto>> getAllAttendance();
+
+    void deleteEmployee(Long employeeId);
 }

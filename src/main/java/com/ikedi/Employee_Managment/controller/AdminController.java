@@ -39,4 +39,10 @@ public class AdminController {
         return ResponseEntity.ok(adminService.getAllAttendance());  // kxWxlp*y_6ZZ
     }
 
+    @DeleteMapping("/employees/{employeeId}")
+    public ResponseEntity<ApiResponse> deleteEmployee(@PathVariable Long employeeId) {
+        adminService.deleteEmployee(employeeId);
+        return ResponseEntity.ok(new ApiResponse<>("Employee with Id " + employeeId + " deleted", null));
+    }
+
 }

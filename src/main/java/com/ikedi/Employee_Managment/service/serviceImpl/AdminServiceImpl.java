@@ -120,4 +120,11 @@ public class AdminServiceImpl implements AdminService {
 
         return new ApiResponse<>("Attendance Retrieved", attendanceList);
     }
+
+    @Override
+    public void deleteEmployee(Long employeeId) {
+        Employee employee = employeeRepository.findById(employeeId)
+                .orElseThrow(() -> new RuntimeException("Employee not found with ID: " + employeeId));
+        employeeRepository.delete(employee);
+    }
 }
